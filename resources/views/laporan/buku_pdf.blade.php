@@ -59,30 +59,30 @@
 	<title>Laporan Data Buku</title>
 </head>
 <body>
-<h1 class="center">LAPORAN DATA BUKU</h1>
+<h1 class="center">LAPORAN DATA ALAT</h1>
  <table id="pseudo-demo">
                       <thead>
                         <tr>
                           <th>
-                            Judul
+                            Alat
                           </th>
                           <th>
-                            ISBN
+                            Kode Alat
                           </th>
                           <th>
-                            Pengarang
+                            Merek
                           </th>
                           <th>
-                            Penerbit
+                            Jenis Alat
                           </th>
                           <th>
-                            Tahun
+                            Tahun Beli
                           </th>
                           <th>
-                            Stok
+                            Jumlah Alat
                           </th>
                           <th>
-                            Rak
+                            Lokasi
                           </th>
                         </tr>
                       </thead>
@@ -90,25 +90,25 @@
                       @foreach($datas as $data)
                         <tr>
                           <td class="py-1">
-                            {{$data->judul}}
+                            {{$data->alat}}
                           </td>
                           <td>
                           
-                            {{$data->isbn}}
+                            {{$data->kode_alat}}
                           
                           </td>
 
                           <td>
-                            {{$data->pengarang}}
+                            {{$data->merek}}
                           </td>
                           <td>
-                            {{$data->penerbit}}
+                            {{$data->jenis_alat}}
                           </td>
                           <td>
-                            {{$data->tahun_terbit}}
+                            {{$data->tahun_beli}}
                           </td>
                           <td>
-                            {{$data->jumlah_buku}}
+                            {{$data->jumlah_alat}}
                           </td>
                           <td>
                             {{$data->lokasi}}

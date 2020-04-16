@@ -29,16 +29,15 @@
 
                 <div class="card-body">
                   <h4 class="card-title" style="font-size: 20px;">Data Transaksi</h4>
-                  
                   <div class="table-responsive">
                     <table class="table table-striped" id="table">
                       <thead>
                         <tr>
                           <th>
-                            Kode
+                            Kode Alat
                           </th>
                           <th>
-                            Buku
+                            Alat
                           </th>
                           <th>
                             Peminjam
@@ -67,7 +66,7 @@
                           </td>
                           <td>
                           
-                            {{@$data->buku_judul}}
+                            {{@$data->alat}}
                           
                           </td>
 

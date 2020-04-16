@@ -43,70 +43,70 @@ $(document).ready(function() {
                 <div class="col-12">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title">Tambah Buku baru</h4>
+                      <h4 class="card-title">Tambah Alat baru</h4>
                       
-                        <div class="form-group{{ $errors->has('judul') ? ' has-error' : '' }}">
-                            <label for="judul" class="col-md-4 control-label">Judul</label>
+                        <div class="form-group{{ $errors->has('alat') ? ' has-error' : '' }}">
+                            <label for="alat" class="col-md-4 control-label">Alat</label>
                             <div class="col-md-6">
-                                <input id="judul" type="text" class="form-control" name="judul" value="{{ old('judul') }}" required>
-                                @if ($errors->has('judul'))
+                                <input id="alat" type="text" class="form-control" name="alat" value="{{ old('alat') }}" required>
+                                @if ($errors->has('alat'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('judul') }}</strong>
+                                        <strong>{{ $errors->first('alat') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('npm') ? ' has-error' : '' }}">
-                            <label for="isbn" class="col-md-4 control-label">ISBN</label>
+                        <div class="form-group{{ $errors->has('kode_alat') ? ' has-error' : '' }}">
+                            <label for="kode_alat" class="col-md-4 control-label">Kode Alat</label>
                             <div class="col-md-6">
-                                <input id="isbn" type="text" class="form-control" name="isbn" value="{{ old('isbn') }}" required>
-                                @if ($errors->has('isbn'))
+                                <input id="kode_alat" type="text" class="form-control" name="kode_alat" value="{{ old('kode_alat') }}" required>
+                                @if ($errors->has('kode_alat'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('isbn') }}</strong>
+                                        <strong>{{ $errors->first('kode_alat') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('pengarang') ? ' has-error' : '' }}">
-                            <label for="pengarang" class="col-md-4 control-label">Pengarang</label>
+                        <div class="form-group{{ $errors->has('merek') ? ' has-error' : '' }}">
+                            <label for="merek" class="col-md-4 control-label">Merek</label>
                             <div class="col-md-6">
-                                <input id="pengarang" type="text" class="form-control" name="pengarang" value="{{ old('pengarang') }}" required>
-                                @if ($errors->has('pengarang'))
+                                <input id="merek" type="text" class="form-control" name="merek" value="{{ old('merek') }}" required>
+                                @if ($errors->has('merek'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('pengarang') }}</strong>
+                                        <strong>{{ $errors->first('merek') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('penerbit') ? ' has-error' : '' }}">
-                            <label for="penerbit" class="col-md-4 control-label">Penerbit</label>
+                        <div class="form-group{{ $errors->has('jenis_alat') ? ' has-error' : '' }}">
+                            <label for="jenis_alat" class="col-md-4 control-label">Jenis Alat</label>
                             <div class="col-md-6">
-                                <input id="penerbit" type="text" class="form-control" name="penerbit" value="{{ old('penerbit') }}" required>
-                                @if ($errors->has('penerbit'))
+                                <input id="jenis_alat" type="text" class="form-control" name="jenis_alat" value="{{ old('jenis_alat') }}" required>
+                                @if ($errors->has('jenis_alat'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('penerbit') }}</strong>
+                                        <strong>{{ $errors->first('jenis_alat') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('tahun_terbit') ? ' has-error' : '' }}">
-                            <label for="tahun_terbit" class="col-md-4 control-label">Tahun Terbit</label>
+                        <div class="form-group{{ $errors->has('tahun_beli') ? ' has-error' : '' }}">
+                            <label for="tahun_beli" class="col-md-4 control-label">Tahun Beli</label>
                             <div class="col-md-6">
-                                <input id="tahun_terbit" type="number" maxlength="4" class="form-control" name="tahun_terbit" value="{{ old('tahun_terbit') }}" required>
-                                @if ($errors->has('tahun_terbit'))
+                                <input id="tahun_beli" type="number" maxlength="4" class="form-control" name="tahun_beli" value="{{ old('tahun_beli') }}" required>
+                                @if ($errors->has('tahun_beli'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('tahun_terbit') }}</strong>
+                                        <strong>{{ $errors->first('tahun_beli') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('jumlah_buku') ? ' has-error' : '' }}">
-                            <label for="jumlah_buku" class="col-md-4 control-label">Jumlah Buku</label>
+                        <div class="form-group{{ $errors->has('jumlah_alat') ? ' has-error' : '' }}">
+                            <label for="jumlah_alat" class="col-md-4 control-label">Jumlah Alat</label>
                             <div class="col-md-6">
-                                <input id="jumlah_buku" type="number" maxlength="4" class="form-control" name="jumlah_buku" value="{{ old('jumlah_buku') }}" required>
-                                @if ($errors->has('jumlah_buku'))
+                                <input id="jumlah_alat" type="number" maxlength="4" class="form-control" name="jumlah_alat" value="{{ old('jumlah_alat') }}" required>
+                                @if ($errors->has('jumlah_alat'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('jumlah_buku') }}</strong>
+                                        <strong>{{ $errors->first('jumlah_alat') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -128,9 +128,9 @@ $(document).ready(function() {
                             <div class="col-md-6">
                             <select class="form-control" name="lokasi" required="">
                                 <option value=""></option>
-                                <option value="rak1">Rak 1</option>
-                                <option value="rak2">Rak 2</option>
-                                <option value="rak3">Rak 3</option>
+                                <option value="baris1">Baris 1</option>
+                                <option value="baris2">Baris 2</option>
+                                <option value="baris3">Baris 3</option>
                             </select>
                             </div>
                         </div>

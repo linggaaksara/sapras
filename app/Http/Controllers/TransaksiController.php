@@ -68,7 +68,7 @@ class TransaksiController extends Controller
             }
         }
 
-        $bukus = Buku::where('jumlah_buku', '>', 0)->get();
+        $bukus = Buku::where('jumlah_alat', '>', 0)->get();
         $anggotas = Anggota::get();
         return view('transaksi.create', compact('bukus', 'kode', 'anggotas'));
     }
@@ -84,33 +84,35 @@ class TransaksiController extends Controller
         // return response()->json($request);  
         $this->validate($request, [
             'kode_transaksi' => 'required|string|max:255',
+            'anggota_nama' => 'required',
+            'kode_alat' => 'required',
+            'alat' => 'required',
+            'lokasi' => 'required',
             'tgl_pinjam' => 'required',
             'tgl_kembali' => 'required',
-            'buku_isbn' => 'required',
-            'buku_lokasi' => 'required',
-            'buku_judul' => 'required',
-            'anggota_nama' => 'required',
+            'ket' => 'required',
 
         ]);
 
         $transaksi = Transaksi::create([
                 'kode_transaksi' => $request->get('kode_transaksi'),
+                'anggota_nama' => $request->get('anggota_nama'),
+                'alat' => $request->get('alat'),
+                'kode_alat' => $request->get('kode_alat'),
+                'alat' => $request->get('alat'),
+                'lokasi' => $request->get('lokasi'),
                 'tgl_pinjam' => $request->get('tgl_pinjam'),
                 'tgl_kembali' => $request->get('tgl_kembali'),
-                'buku_isbn' => $request->get('buku_isbn'),
-                'buku_lokasi' => $request->get('buku_lokasi'),
-                'buku_judul' => $request->get('buku_judul'),
-                'anggota_nama' => $request->get('anggota_nama'),
                 'ket' => $request->get('ket'),
                 'status' => 'pinjam'
             ]);
 
-        $buku = Buku::where('isbn', $transaksi->buku_isbn);
+        $alat = Buku::where('kode_alat', $transaksi->kode_alat);
 
-        $jumlah_buku = $buku->first()->jumlah_buku;
+        $jumlah_alat = $alat->first()->jumlah_alat;
 
-                        $buku->update([
-                            'jumlah_buku' => ($jumlah_buku - 1),
+                        $alat->update([
+                            'jumlah_alat' => ($jumlah_alat - 1),
                             ]); 
 
         alert()->success('Berhasil.','Data telah ditambahkan!');
@@ -168,12 +170,12 @@ class TransaksiController extends Controller
     {
         $transaksi = Transaksi::find($id_transaksi);
 
-        $buku = Buku::where('isbn', $transaksi->buku_isbn);
+        $alat = Buku::where('kode_alat', $transaksi->kode_alat);
 
-        $jumlah_buku = $buku->first()->jumlah_buku;
+        $jumlah_alat = $alat->first()->jumlah_alat;
                 
-        $buku->update([
-                'jumlah_buku' => ($jumlah_buku + 1)
+        $alat->update([
+                'jumlah_alat' => ($jumlah_alat + 1)
             ]);
 
         $transaksi->update([
@@ -191,9 +193,9 @@ class TransaksiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($isbn)
+    public function destroy($kode_alat)
     {
-        Transaksi::find($isbn)  ->delete();
+        Transaksi::find($kode_alat)  ->delete();
         alert()->success('Berhasil.','Data telah dihapus!');
         return redirect()->route('transaksi.index');
     }

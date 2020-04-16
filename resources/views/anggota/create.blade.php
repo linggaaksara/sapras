@@ -34,13 +34,13 @@ $(document).ready(function() {
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('npm') ? ' has-error' : '' }}">
-                            <label for="npm" class="col-md-4 control-label">NPM</label>
+                        <div class="form-group{{ $errors->has('no_card') ? ' has-error' : '' }}">
+                            <label for="no_card" class="col-md-4 control-label">no_card</label>
                             <div class="col-md-6">
-                                <input id="npm" type="number" class="form-control" name="npm" value="{{ old('npm') }}" maxlength="8" required>
-                                @if ($errors->has('npm'))
+                                <input id="no_card" type="number" class="form-control" name="no_card" value="{{ old('no_card') }}" maxlength="8" required>
+                                @if ($errors->has('no_card'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('npm') }}</strong>
+                                        <strong>{{ $errors->first('no_card') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -80,14 +80,14 @@ $(document).ready(function() {
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('prodi') ? ' has-error' : '' }}">
-                            <label for="prodi" class="col-md-4 control-label">Prodi</label>
+                        <div class="form-group{{ $errors->has('jabatan') ? ' has-error' : '' }}">
+                            <label for="jabatan" class="col-md-4 control-label">jabatan</label>
                             <div class="col-md-6">
-                            <select class="form-control" name="prodi" required="">
+                            <select class="form-control" name="jabatan" required="">
                                 <option value=""></option>
-                                <option value="TI">Teknik Informatika</option>
-                                <option value="SI">Sistem Informasi</option>
-                                <option value="KM">Kesehatan Masyarakat</option>
+                                <option value="PM">Programmer</option>
+                                <option value="SC">Security</option>
+                                <option value="KY">Karyawan</option>
                             </select>
                             </div>
                         </div>

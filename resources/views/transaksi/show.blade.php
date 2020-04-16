@@ -35,9 +35,9 @@
 
 
                         <div class="form-group">
-                            <label for="anggota_id" class="col-md-4 control-label">Buku</label>
+                            <label for="anggota_id" class="col-md-4 control-label">Alat</label>
                             <div class="col-md-6">
-                                <input id="buku" type="text" class="form-control" readonly="" value="{{$data->buku->judul}}">
+                                <input id="peralatan" type="text" class="form-control" readonly="" value="{{$data->peralatan->alat}}">
 
                             </div>
                         </div>

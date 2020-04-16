@@ -46,7 +46,7 @@ class LaporanController extends Controller
     {
         $nama = 'laporan_buku_'.date('Y-m-d_H-i-s');
         Excel::create($nama, function ($excel) use ($request) {
-        $excel->sheet('Laporan Data Buku', function ($sheet) use ($request) {
+        $excel->sheet('Laporan Data Alat', function ($sheet) use ($request) {
         
         $sheet->mergeCells('A1:H1');
 
@@ -58,7 +58,7 @@ class LaporanController extends Controller
             $row->setFontWeight('bold');
         });
 
-        $sheet->row(1, array('LAPORAN DATA BUKU'));
+        $sheet->row(1, array('LAPORAN DATA ALAT'));
 
         $sheet->row(2, function ($row) {
             $row->setFontFamily('Calibri');
@@ -74,19 +74,19 @@ class LaporanController extends Controller
         });
 
          $datasheet = array();
-         $datasheet[0]  =   array("NO", "JUDUL", "ISBN", "PENGARANG",  "PENERBIT","TAHUN TERBIT","JUMLAH BUKU", "LOKASI");
+         $datasheet[0]  =   array("NO", "ALAT", "KODE ALAT", "MEREK",  "JENIS ALAT","TAHUN BELI","JUMLAH ALAT", "LOKASI");
          $i=1;
 
         foreach ($datas as $data) {
 
            // $sheet->appendrow($data);
           $datasheet[$i] = array($i,
-                        $data['judul'],
-                        $data['isbn'],
-                        $data['pengarang'],
-                        $data['penerbit'],
-                        $data['tahun_terbit'],
-                        $data['jumlah_buku'],
+                        $data['alat'],
+                        $data['kode_alat'],
+                        $data['merek'],
+                        $data['jenis_alat'],
+                        $data['tahun_beli'],
+                        $data['jumlah_alat'],
                         $data['lokasi']
                     );
           
@@ -123,7 +123,7 @@ public function transaksi()
 
         if(Auth::user()->level == 'user')
         {
-            $q->where('anggota_id', Auth::user()->anggota->id);
+            $q->where('anggota_id', Auth::user()->id);
         }
 
         $datas = $q->get();
@@ -171,7 +171,7 @@ public function transaksiExcel(Request $request)
 
         if(Auth::user()->level == 'user')
         {
-            $q->where('anggota_id', Auth::user()->anggota->id);
+            $q->where('anggota_id', Auth::user()->id);
         }
 
         $datas = $q->get();
@@ -182,7 +182,7 @@ public function transaksiExcel(Request $request)
         });
 
          $datasheet = array();
-         $datasheet[0]  =   array("NO", "KODE TRANSAKSI", "BUKU", "PEMINJAM",  "TGL PINJAM","TGL KEMBALI","STATUS", "KET");
+         $datasheet[0]  =   array("NO", "KODE TRANSAKSI", "ALAT", "PEMINJAM",  "TGL PINJAM","TGL KEMBALI","STATUS", "KET");
          $i=1;
 
         foreach ($datas as $data) {
@@ -190,8 +190,8 @@ public function transaksiExcel(Request $request)
            // $sheet->appendrow($data);
           $datasheet[$i] = array($i,
                         $data['kode_transaksi'],
-                        $data->buku->judul,
-                        $data->anggota->nama,
+                        $data->alat,
+                        $data->anggota_nama,
                         date('d/m/y', strtotime($data['tgl_pinjam'])),
                         date('d/m/y', strtotime($data['tgl_kembali'])),
                         $data['status'],

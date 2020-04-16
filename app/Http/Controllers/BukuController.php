@@ -54,7 +54,7 @@ class BukuController extends Controller
 
     public function format()
     {
-        $data = [['judul' => null, 'isbn' => null, 'pengarang' => null, 'penerbit' => null, 'tahun_terbit' => null, 'jumlah_buku' => null, 'deskripsi' => null, 'lokasi' => 'rak1/rak2/rak3']];
+        $data = [['alat' => null, 'kode_alat' => null, 'merek' => null, 'jenis_alat' => null, 'tahun_beli' => null, 'jumlah_alat' => null, 'deskripsi' => null, 'lokasi' => 'baris1/baris2/baris3']];
             $fileName = 'format-buku';
             
 
@@ -82,12 +82,12 @@ class BukuController extends Controller
             if (!empty($a) && $a->count()) {
                 foreach ($a as $key => $value) {
                     $insert[] = [
-                            'judul' => $value->judul, 
-                            'isbn' => $value->isbn, 
-                            'pengarang' => $value->pengarang, 
-                            'penerbit' => $value->penerbit,
-                            'tahun_terbit' => $value->tahun_terbit, 
-                            'jumlah_buku' => $value->jumlah_buku, 
+                            'alat' => $value->alat, 
+                            'kode_alat' => $value->kode_alat, 
+                            'merek' => $value->merek, 
+                            'jenis_alat' => $value->jenis_alat,
+                            'tahun_beli' => $value->tahun_beli, 
+                            'jumlah_beli' => $value->jumlah_beli, 
                             'deskripsi' => $value->deskripsi, 
                             'lokasi' => $value->lokasi,
                             'cover' => NULL];
@@ -110,11 +110,6 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'judul' => 'required|string|max:255',
-            'isbn' => 'required|string'
-        ]);
-
         if($request->file('cover')) {
             $file = $request->file('cover');
             $dt = Carbon::now();
@@ -125,14 +120,13 @@ class BukuController extends Controller
         } else {
             $cover = NULL;
         }
-
         Buku::create([
-                'judul' => $request->get('judul'),
-                'isbn' => $request->get('isbn'),
-                'pengarang' => $request->get('pengarang'),
-                'penerbit' => $request->get('penerbit'),
-                'tahun_terbit' => $request->get('tahun_terbit'),
-                'jumlah_buku' => $request->get('jumlah_buku'),
+                'alat' => $request->get('alat'),
+                'kode_alat' => $request->get('kode_alat'),
+                'merek' => $request->get('merek'),
+                'jenis_alat' => $request->get('jenis_alat'),
+                'tahun_beli' => $request->get('tahun_beli'),
+                'jumlah_alat' => $request->get('jumlah_alat'),
                 'deskripsi' => $request->get('deskripsi'),
                 'lokasi' => $request->get('lokasi'),
                 'cover' => $cover
@@ -200,12 +194,12 @@ class BukuController extends Controller
         }
 
         Buku::find($id)->update([
-             'judul' => $request->get('judul'),
-                'isbn' => $request->get('isbn'),
-                'pengarang' => $request->get('pengarang'),
-                'penerbit' => $request->get('penerbit'),
-                'tahun_terbit' => $request->get('tahun_terbit'),
-                'jumlah_buku' => $request->get('jumlah_buku'),
+                'alat' => $request->get('alat'),
+                'kode_alat' => $request->get('kode_alat'),
+                'merek' => $request->get('merek'),
+                'jenis_alat' => $request->get('jenis_alat'),
+                'tahun_beli' => $request->get('tahun_beli'),
+                'jumlah_alat' => $request->get('jumlah_alat'),
                 'deskripsi' => $request->get('deskripsi'),
                 'lokasi' => $request->get('lokasi'),
                 'cover' => $cover

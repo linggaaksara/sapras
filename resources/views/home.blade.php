@@ -57,17 +57,17 @@
                 <div class="card-body">
                   <div class="clearfix">
                     <div class="float-left">
-                      <i class="mdi mdi-book text-success icon-lg" style="width: 40px;height: 40px;"></i>
+                      <i class="mdi mdi-silverware-variant text-success icon-lg" style="width: 40px;height: 40px;"></i>
                     </div>
                     <div class="float-right">
-                      <p class="mb-0 text-right">Buku</p>
+                      <p class="mb-0 text-right">Peralatan</p>
                       <div class="fluid-container">
                         <h3 class="font-weight-medium text-right mb-0">{{$buku->count()}}</h3>
                       </div>
                     </div>
                   </div>
                   <p class="text-muted mt-3 mb-0">
-                    <i class="mdi mdi-book mr-1" aria-hidden="true"></i> Total judul buku
+                    <i class="mdi mdi-silverware-variant mr-1" aria-hidden="true"></i> Total Peralatan
                   </p>
                 </div>
               </div>
@@ -87,7 +87,7 @@
                     </div>
                   </div>
                   <p class="text-muted mt-3 mb-0">
-                    <i class="mdi mdi-account mr-1" aria-hidden="true"></i> Total seluruh anggota
+                    <i class="mdi mdi-account-check mr-1" aria-hidden="true"></i> Total seluruh anggota
                   </p>
                 </div>
               </div>
@@ -105,10 +105,10 @@
                       <thead>
                         <tr>
                           <th>
-                            Kode
+                            No Seri
                           </th>
                           <th>
-                            Judul Buku
+                            Alat
                           </th>
                           <th>
                             Nama Peminjam
@@ -137,7 +137,7 @@
                           </td>
                           <td>
                           
-                            {{@$data->buku_judul}}
+                            {{@$data->alat}}
                           
                           </td>
 

@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>PERPUSTAKAAN LOGIN</title>
+  <title>Warehouse SMK WIKRAMA</title>
 
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="stylesheet" href="{{asset('vendors/iconfonts/mdi/css/materialdesignicons.min.css')}}">
@@ -26,7 +26,7 @@
 
         <div class="row w-100">
         <div class="col-md-12" style="margin-bottom: 20px;">
-        <h2 style="text-align: center;">PERPUSTAKAAN</h2>
+        <h2 style="text-align: center;">Warehouse SMK WIKRAMA</h2>
         </div>
         <div class="col-lg-4 mx-auto">
             <div class="auto-form-wrapper">
@@ -67,7 +67,7 @@
                   <button class="btn btn-primary submit-btn btn-block" type="submit">Login</button>
                 </div>
             </div>
-            <p class="footer-text text-center" style="margin-top: 20px;color: #308ee0">Copyright © {{date('Y')}} Perpustakaan</p>
+            <p class="footer-text text-center" style="margin-top: 20px;color: #308ee0">Copyright © {{date('Y')}} Lingga Aksara</p>
           </div>
         </div>
       </div>

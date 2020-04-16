@@ -2,9 +2,9 @@
  <script type="text/javascript">
             $(document).on('click', '.pilih', function (e) {
               console.log(this);
-                document.getElementById("buku_judul").value = $(this).attr('data-buku_judul');
-                document.getElementById("buku_isbn").value = $(this).attr('data-buku_isbn');
-                document.getElementById("buku_lokasi").value = $(this).attr('data-buku_lokasi');
+                document.getElementById("alat").value = $(this).attr('data-alat');
+                document.getElementById("kode_alat").value = $(this).attr('data-kode_alat');
+                document.getElementById("lokasi").value = $(this).attr('data-lokasi');
                 $('#myModal').modal('hide');
             });
 
@@ -22,22 +22,22 @@
              $(document).ready(function() {
               var temp = null;
               var action = 0;
-              $('#buku_isbn').on('change input', function(e){
+              $('#kode_alat').on('change input', function(e){
                 e.preventDefault();
-                var data_buku = JSON.parse($('#data-buku').val());
+                var data_peralatan = JSON.parse($('#data-peralatan').val());
                 var finded = false;
 
-                $.each(data_buku, function(index, item){
-                  if(item.isbn == $('#buku_isbn').val()){
-                    $('#buku_judul').val(item.judul)
-                    $('#buku_lokasi').val(item.lokasi)
+                $.each(data_peralatan, function(index, item){
+                  if(item.kode_alat == $('#kode_alat').val()){
+                    $('#alat').val(item.alat)
+                    $('#lokasi').val(item.lokasi)
                     finded = true;
                   }
                 })
 
                 if(!finded){
-                  $('#buku_judul').val('');
-                  $('#buku_lokasi').val('');
+                  $('#alat').val('');
+                  $('#lokasi').val('');
                 }
               });
              });
@@ -51,7 +51,7 @@
 @extends('layouts.app')
 
 @section('content')
-<textarea id="data-buku" style="display:none;">{{ json_encode($bukus) }}</textarea>
+<textarea id="data-peralatan" style="display:none;">{{ json_encode($bukus) }}</textarea>
 <form method="POST" action="{{ route('transaksi.store') }}" id="submit-form" enctype="multipart/form-data">
     {{ csrf_field() }}
 <div class="row">
@@ -95,22 +95,22 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('buku_isbn') ? ' has-error' : '' }}">
-                            <label for="buku_isbn" class="col-md-4 control-label">Buku</label>
+                        <div class="form-group{{ $errors->has('kode_alat') ? ' has-error' : '' }}">
+                            <label for="kode_alat" class="col-md-4 control-label">Nama Alat</label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                <input id="buku_isbn" type="input" name="buku_isbn" value="{{ old('buku_isbn') }}" required autofocus>
+                                <input id="kode_alat" type="input" name="kode_alat" value="{{ old('kode_alat') }}" required autofocus>
                                 <div>
-                                <input id="buku_judul" type="input" name="buku_judul" value="{{ old('buku_judul') }}" class="form-control" required>
+                                <input id="alat" type="input" name="alat" value="{{ old('alat') }}" class="form-control" enable>
                                 </div>
-                                <input id="buku_lokasi" type="input" name="buku_lokasi" value="{{ old('buku_lokasi') }}" class="form-control" required>
+                                <input id="lokasi" type="input" name="lokasi" value="{{ old('lokasi') }}" class="form-control" required >
                                 <span class="input-group-btn">
-                                    <button type="button" class="btn btn-info btn-secondary" data-toggle="modal" data-target="#myModal"><b>Cari Buku</b> <span class="fa fa-search"></span></button>
+                                    <button type="button" class="btn btn-info btn-secondary" data-toggle="modal" data-target="#myModal"><b>Cari Alat</b> <span class="fa fa-search"></span></button>
                                 </span>
                                 </div>
-                                @if ($errors->has('buku_isbn'))
+                                @if ($errors->has('kode_alat'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('buku_isbn') }}</strong>
+                                        <strong>{{ $errors->first('kode_alat') }}</strong>
                                     </span>
                                 @endif
                                  
@@ -187,7 +187,7 @@
   <div class="modal-dialog modal-lg" role="document" >
     <div class="modal-content" style="background: #fff;">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Cari Buku</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Cari Alat</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -196,28 +196,23 @@
                         <table id="lookup" class="table table-bordered table-hover table-striped">
                             <thead>
                                 <tr>
-                                    <th>Judul</th>
-                                    <th>ISBN</th>
-                                    <th>Pengarang</th>
-                                    <th>Tahun</th>
-                                    <th>Lokasi</th>
+                                    <th>Alat</th>
+                                    <th>Kode Alat</th>
+                                    <th>Merek</th>
+                                    <th>Tahun Beli</th>
+                                    <th>Lokasi Barang</th>
                                     <th>Stok</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($bukus as $data)
-                                <tr class="pilih" data-buku_isbn="<?php echo $data->isbn; ?>" data-buku_judul="<?php echo $data->judul; ?>" data-buku_lokasi="<?php echo $data->lokasi; ?>" >
-                                    <td>@if($data->cover)
-                            <img src="{{url('images/buku/'. $data->cover)}}" alt="image" style="margin-right: 10px;" />
-                          @else
-                            <img src="{{url('images/buku/default.png')}}" alt="image" style="margin-right: 10px;" />
-                          @endif
-                                    
-                                    <td>{{$data->isbn}}</td>
-                                    <td>{{$data->pengarang}}</td>
-                                    <td>{{$data->tahun_terbit}}</td>
+                                <tr class="pilih" data-kode_alat="<?php echo $data->kode_alat; ?>" data-alat="<?php echo $data->alat; ?>" data-lokasi="<?php echo $data->lokasi; ?>" >
+                                    <td>{{$data->alat}}</td>
+                                    <td>{{$data->kode_alat}}</td>
+                                    <td>{{$data->merek}}</td>
+                                    <td>{{$data->tahun_beli}}</td>
                                     <td>{{$data->lokasi}}</td>
-                                    <td>{{$data->jumlah_buku}}</td>
+                                    <td>{{$data->jumlah_alat}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -246,10 +241,10 @@
                             Nama
                           </th>
                           <th>
-                            NPM
+                            No Card
                           </th>
                           <th>
-                            Prodi
+                            Jabatan
                           </th>
                           <th>
                             Jenis Kelamin
@@ -269,16 +264,16 @@
                             {{$data->nama}}
                           </td>
                           <td>
-                            {{$data->npm}}
+                            {{$data->no_card}}
                           </td>
 
                           <td>
-                          @if($data->prodi == 'TI')
-                            Teknik Informatika
-                          @elseif($data->prodi == 'SI')
-                            Sistem Informasi
+                          @if($data->jabatan == 'PM')
+                            Programmer
+                          @elseif($data->jabatan == 'SC')
+                            Security
                           @else
-                            Kesehatan Masyarakat
+                            Karyawan
                           @endif
                           </td>
                           <td>

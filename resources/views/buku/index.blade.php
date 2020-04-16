@@ -14,7 +14,14 @@
 <div class="row">
 
   <div class="col-lg-2">
-    <a href="{{ route('buku.create') }}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i> Tambah Buku</a>
+    <a href="{{ route('buku.create') }}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i> Tambah Alat</a>
+  </div>
+  <div class="col-lg-1">
+    <a href="{{url('laporan/buku')}}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-print" style="position: right"></i> Laporan Alat</a>
+  </div>
+  <div class="col-lg-1"></div>
+  <div class="col-lg-3">
+    <a href="{{url('laporan/trs')}}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-print" style="position: right"></i> Laporan Transaksi</a>
   </div>
     <div class="col-lg-12">
                   @if (Session::has('message'))
@@ -27,29 +34,29 @@
               <div class="card">
 
                 <div class="card-body">
-                  <h4 class="card-title pull-left" style="font-size: 20px;">Data Buku</h4>
-                  <a href="{{url('format_buku')}}" class="btn btn-xs btn-info pull-right">Format Buku</a>
+                  <h4 class="card-title pull-left" style="font-size: 20px;">Data Alat</h4>
+                  <a href="{{url('format_buku')}}" class="btn btn-xs btn-info pull-right">Format Alat</a>
                   <div class="table-responsive">
                     <table class="table table-striped" id="table">
                       <thead>
                         <tr>
                           <th>
-                            Judul
+                            Nama Alat
                           </th>
                           <th>
-                            ISBN
+                            Kode Alat
                           </th>
                           <th>
-                            Pengarang
+                            Merek
                           </th>
                           <th>
-                            Tahun
+                            Tahun Beli
                           </th>
                           <th>
                             Stok
                           </th>
                           <th>
-                            Rak
+                            Baris
                           </th>
                           <th>
                             Action
@@ -66,23 +73,23 @@
                             <img src="{{url('images/buku/default.png')}}" alt="image" style="margin-right: 10px;" />
                           @endif
                           <a href="{{route('buku.show', $data->id)}}"> 
-                            {{$data->judul}}
+                            {{$data->alat}}
                           </a>
                           </td>
                           <td>
                           
-                            {{$data->isbn}}
+                            {{$data->kode_alat}}
                           
                           </td>
 
                           <td>
-                            {{$data->pengarang}}
+                            {{$data->merek}}
                           </td>
                           <td>
-                            {{$data->tahun_terbit}}
+                            {{$data->tahun_beli}}
                           </td>
                           <td>
-                            {{$data->jumlah_buku}}
+                            {{$data->jumlah_alat}}
                           </td>
                           <td>
                             {{$data->lokasi}}

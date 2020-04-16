@@ -92,7 +92,7 @@
                             Kode
                           </th>
                           <th>
-                            Buku
+                            Alat
                           </th>
                           <th>
                             Peminjam
@@ -115,13 +115,10 @@
                             {{$data->kode_transaksi}}
                           </td>
                           <td>
-                          
-                            {{$data->buku->judul}}
-                          
+                            {{$data->alat}}
                           </td>
-
                           <td>
-                            {{$data->anggota->nama}}
+                            {{$data->anggota_nama}}
                           </td>
                           <td>
                            {{date('d/m/y', strtotime($data->tgl_pinjam))}}

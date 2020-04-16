@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Buku extends Model
 {
-    protected $table = 'buku';
-    protected $fillable = ['judul', 'isbn', 'penerbit', 'pengarang', 'tahun_terbit', 'jumlah_buku', 'lokasi', 'deskripsi', 'cover'];
+    protected $table = 'peralatan';
+    protected $fillable = ['alat', 'kode_alat', 'merek', 'jenis_alat', 'tahun_beli', 'jumlah_alat', 'lokasi', 'deskripsi', 'cover'];
 
     /**
      * Method One To Many 

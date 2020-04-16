@@ -44,70 +44,70 @@ $(document).ready(function() {
                 <div class="col-12">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title">Edit Buku <b>{{$data->judul}}</b> </h4>
+                      <h4 class="card-title">Edit Alat <b>{{$data->alat}}</b> </h4>
                       <form class="forms-sample">
-                        <div class="form-group{{ $errors->has('judul') ? ' has-error' : '' }}">
-                            <label for="judul" class="col-md-4 control-label">Judul</label>
+                        <div class="form-group{{ $errors->has('alat') ? ' has-error' : '' }}">
+                            <label for="alat" class="col-md-4 control-label">Alat</label>
                             <div class="col-md-6">
-                                <input id="judul" type="text" class="form-control" name="judul" value="{{ $data->judul }}" required>
-                                @if ($errors->has('judul'))
+                                <input id="alat" type="text" class="form-control" name="alat" value="{{ $data->alat }}" required>
+                                @if ($errors->has('alat'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('judul') }}</strong>
+                                        <strong>{{ $errors->first('alat') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('npm') ? ' has-error' : '' }}">
-                            <label for="isbn" class="col-md-4 control-label">ISBN</label>
+                            <label for="kode_alat" class="col-md-4 control-label">Kode Alat</label>
                             <div class="col-md-6">
-                                <input id="isbn" type="text" class="form-control" name="isbn" value="{{ $data->isbn }}" required>
-                                @if ($errors->has('isbn'))
+                                <input id="kode_alat" type="text" class="form-control" name="kode_alat" value="{{ $data->kode_alat }}" required>
+                                @if ($errors->has('kode_alat'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('isbn') }}</strong>
+                                        <strong>{{ $errors->first('kode_alat') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('pengarang') ? ' has-error' : '' }}">
-                            <label for="pengarang" class="col-md-4 control-label">Pengarang</label>
+                        <div class="form-group{{ $errors->has('merek') ? ' has-error' : '' }}">
+                            <label for="merek" class="col-md-4 control-label">merek</label>
                             <div class="col-md-6">
-                                <input id="pengarang" type="text" class="form-control" name="pengarang" value="{{ $data->pengarang }}" required>
-                                @if ($errors->has('pengarang'))
+                                <input id="merek" type="text" class="form-control" name="merek" value="{{ $data->merek }}" required>
+                                @if ($errors->has('merek'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('pengarang') }}</strong>
+                                        <strong>{{ $errors->first('merek') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('penerbit') ? ' has-error' : '' }}">
-                            <label for="penerbit" class="col-md-4 control-label">Penerbit</label>
+                        <div class="form-group{{ $errors->has('jenis_alat') ? ' has-error' : '' }}">
+                            <label for="jenis_alat" class="col-md-4 control-label">jenis_alat</label>
                             <div class="col-md-6">
-                                <input id="penerbit" type="text" class="form-control" name="penerbit" value="{{ $data->penerbit }}" required>
-                                @if ($errors->has('penerbit'))
+                                <input id="jenis_alat" type="text" class="form-control" name="jenis_alat" value="{{ $data->jenis_alat }}" required>
+                                @if ($errors->has('jenis_alat'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('penerbit') }}</strong>
+                                        <strong>{{ $errors->first('jenis_alat') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('tahun_terbit') ? ' has-error' : '' }}">
-                            <label for="tahun_terbit" class="col-md-4 control-label">Tahun Terbit</label>
+                        <div class="form-group{{ $errors->has('tahun_beli') ? ' has-error' : '' }}">
+                            <label for="tahun_beli" class="col-md-4 control-label">Tahun Beli</label>
                             <div class="col-md-6">
-                                <input id="tahun_terbit" type="number" maxlength="4" class="form-control" name="tahun_terbit" value="{{ $data->tahun_terbit }}" required>
-                                @if ($errors->has('tahun_terbit'))
+                                <input id="tahun_beli" type="number" maxlength="4" class="form-control" name="tahun_beli" value="{{ $data->tahun_beli }}" required>
+                                @if ($errors->has('tahun_beli'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('tahun_terbit') }}</strong>
+                                        <strong>{{ $errors->first('tahun_beli') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('jumlah_buku') ? ' has-error' : '' }}">
-                            <label for="jumlah_buku" class="col-md-4 control-label">Jumlah Buku</label>
+                        <div class="form-group{{ $errors->has('jumlah_alat') ? ' has-error' : '' }}">
+                            <label for="jumlah_alat" class="col-md-4 control-label">Jumlah Alat</label>
                             <div class="col-md-6">
-                                <input id="jumlah_buku" type="number" maxlength="4" class="form-control" name="jumlah_buku" value="{{ $data->jumlah_buku }}" required>
-                                @if ($errors->has('jumlah_buku'))
+                                <input id="jumlah_alat" type="number" maxlength="4" class="form-control" name="jumlah_alat" value="{{ $data->jumlah_alat }}" required>
+                                @if ($errors->has('jumlah_alat'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('jumlah_buku') }}</strong>
+                                        <strong>{{ $errors->first('jumlah_alat') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -128,9 +128,9 @@ $(document).ready(function() {
                             <label for="lokasi" class="col-md-4 control-label">Lokasi</label>
                             <div class="col-md-6">
                             <select class="form-control" name="lokasi" required="">
-                                <option value="rak1" {{$data->lokasi === "rak1" ? "selected" : ""}}>Rak 1</option>
-                                <option value="rak2" {{$data->lokasi === "rak2" ? "selected" : ""}}>Rak 2</option>
-                                <option value="rak3" {{$data->lokasi === "rak3" ? "selected" : ""}}>Rak 3</option>
+                                <option value="baris1" {{$data->lokasi === "baris1" ? "selected" : ""}}>Baris 1</option>
+                                <option value="baris2" {{$data->lokasi === "baris2" ? "selected" : ""}}>Bari 2</option>
+                                <option value="baris3" {{$data->lokasi === "baris3" ? "selected" : ""}}>Bari 3</option>
                             </select>
                             </div>
                         </div>

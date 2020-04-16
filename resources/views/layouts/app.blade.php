@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>PERPUSTAKAAN</title>
+  <title>Warehouse SMK WIKRAMA</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{asset('vendors/iconfonts/mdi/css/materialdesignicons.min.css')}}">
   <link rel="stylesheet" href="{{asset('vendors/css/vendor.bundle.base.css')}}">
@@ -36,19 +36,19 @@
     <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar navbar-expand-lg p-2 fixed-top" style="background-color: #008080;">
-  <a class="navbar-brand" style="font-size: 25px; color: white;">PERPUSTAKAAN</a>
-  <a class="navbar-brand" href="{{url('/')}}" style="font-size: 14px; color: white;">Dashboard</a>
+  <a class="navbar-brand" style="font-size: 25px; color: white;">Warehouse</a>
+  <a class="navbar-brand" href="{{url('/')}}" style="font-size: 14px; color: white; background-image: ">Dashboard</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px; color: white;">
-          Data Master
+          Data Data
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{{route('anggota.index')}}">Data Anggota</a>
-          <a class="dropdown-item" href="{{route('buku.index')}}">Data Buku</a>
+          <a class="dropdown-item" href="{{route('buku.index')}}">Data Alat</a>
           <a class="dropdown-item" href="{{route('user.index')}}">Data Users</a>
         </div>
       </li>
@@ -93,7 +93,7 @@
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
-      
+
       <div class="main-panel">
         <div class="content-wrapper">
           @yield('content')
@@ -102,7 +102,7 @@
         <footer class="footer">
           <div class="container-fluid clearfix">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © {{date('Y')}}
-            <a href="https://www.instagram.com/perpustakaan_wikrama/" target="_blank">Perpustakaan</a> SMK WIKRAMA BOGOR</span>
+            <a href="https://www.instagram.com/perpustakaan_wikrama/" target="_blank">Warehouse</a> SMK WIKRAMA BOGOR</span>
           </div>
         </footer>
         <!-- partial -->

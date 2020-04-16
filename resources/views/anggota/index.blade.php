@@ -37,10 +37,10 @@
                             Nama
                           </th>
                           <th>
-                            NPM
+                            No. Card
                           </th>
                           <th>
-                            Prodi
+                            Jabatan
                           </th>
                           <th>
                             Jenis Kelamin
@@ -64,17 +64,17 @@
                           </td>
                           <td>
                           <a href="{{route('anggota.show', $data->id)}}"> 
-                            {{$data->npm}}
+                            {{$data->no_card}}
                           </a>
                           </td>
 
                           <td>
-                          @if($data->prodi == 'TI')
-                            Teknik Informatika
-                          @elseif($data->prodi == 'SI')
-                            Sistem Informasi
+                          @if($data->jabatan == 'PM')
+                            Programmer
+                          @elseif($data->jabatan == 'SC')
+                            Security
                           @else
-                            Kesehatan Masyarakat
+                            Karyawan
                           @endif
                           </td>
                           <td>
